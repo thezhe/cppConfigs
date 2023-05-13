@@ -1,0 +1,42 @@
+# https://clang.llvm.org/docs/ClangFormat.html
+# Tabs are 4 spaces; always Allman brace-wrap scopes.
+
+Language: Cpp
+
+BasedOnStyle: LLVM
+
+AccessModifierOffset: -4
+AlignArrayOfStructures: Left
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBinaryOperators: All
+BreakBeforeBraces: Allman
+BreakBeforeConceptDeclarations: Always
+ColumnLimit: 110
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+Cpp11BracedListStyle: false
+DeriveLineEnding: false
+IncludeBlocks: Merge
+IncludeCategories: []
+IndentPPDirectives: BeforeHash
+IndentWidth: 4
+InsertBraces: true
+UseCRLF: false
+LineEnding: LF
+KeepEmptyLinesAtTheStartOfBlocks: false
+PackConstructorInitializers: CurrentLine
+PointerAlignment: Left
+PPIndentWidth: -4
+QualifierAlignment: Left
+# QualifierOrder: ["inline", "static", "constexpr", "const", "type", "restrict"]
+RequiresClausePosition: OwnLine
+SeparateDefinitionBlocks: Always
+SpaceAfterTemplateKeyword: false
+SpaceAroundPointerQualifiers: Before
+SpacesInContainerLiterals: false
+TabWidth: 4

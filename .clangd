@@ -1,0 +1,72 @@
+# https://clangd.llvm.org
+# As many C++ checks as possible, camelBack within scopes, CamelCase outside scopes, lower_case local variables.
+
+InlayHints:
+    Enabled: false
+
+CompileFlags:
+    Add:
+        [
+            -Wall,
+            -Wextra,
+            -Rpass-missed=loop-vectorize,
+            -Rpass-analysis=loop-vectorize,
+            -fsave-optimization-record,
+            -std=c++20,
+        ]
+
+Diagnostics:
+    ClangTidy:
+        Add: "*"
+        Remove:
+            - "fuchsia-trailing-return"
+            - "llvmlibc-restrict-system-libc-headers"
+            - "llvmlibc-implementation-in-namespace"
+            - "altera-unroll-loops"
+            - "fuchsia-overloaded-operator"
+            - "readability-identifier-length"
+        CheckOptions:
+            readability-identifier-naming.AbstractClassCase: CamelCase
+            readability-identifier-naming.ClassCase: CamelCase
+            readability-identifier-naming.ClassConstantCase: camelBack
+            readability-identifier-naming.ClassMemberCase: camelBack
+            readability-identifier-naming.ClassMethodCase: camelBack
+            readability-identifier-naming.ConstantCase: camelBack
+            readability-identifier-naming.ConstantMemberCase: camelBack
+            readability-identifier-naming.ConstantParameterCase: camelBack
+            readability-identifier-naming.ConstantPointerParameterCase: camelBack
+            readability-identifier-naming.ConstexprFunctionCase: camelBack
+            readability-identifier-naming.ConstexprMethodCase: camelBack
+            readability-identifier-naming.ConstexprVariableCase: camelBack
+            readability-identifier-naming.EnumCase: CamelCase
+            readability-identifier-naming.EnumConstantCase: camelBack
+            readability-identifier-naming.FunctionCase: camelBack
+            readability-identifier-naming.LocalConstantCase: lower_case
+            readability-identifier-naming.LocalConstantPointerCase: lower_case
+            readability-identifier-naming.LocalPointerCase: lower_case
+            readability-identifier-naming.LocalVariableCase: lower_case
+            readability-identifier-naming.MemberCase: camelBack
+            readability-identifier-naming.MethodCase: camelBack
+            readability-identifier-naming.NamespaceCase: CamelCase
+            readability-identifier-naming.ParameterCase: camelBack
+            readability-identifier-naming.ParameterPackCase: camelBack
+            readability-identifier-naming.PointerParameterCase: camelBack
+            readability-identifier-naming.PrivateMemberCase: camelBack
+            readability-identifier-naming.PrivateMethodCase: camelBack
+            readability-identifier-naming.ProtectedMemberCase: camelBack
+            readability-identifier-naming.ProtectedMethodCase: camelBack
+            readability-identifier-naming.PublicMemberCase: camelBack
+            readability-identifier-naming.PublicMethodCase: camelBack
+            readability-identifier-naming.ScopedEnumConstantCase: camelBack
+            readability-identifier-naming.StaticConstantCase: camelBack
+            readability-identifier-naming.StaticVariableCase: camelBack
+            readability-identifier-naming.StructCase: CamelCase
+            readability-identifier-naming.TemplateParameterCase: CamelCase
+            readability-identifier-naming.TemplateTemplateParameterCase: CamelCase
+            readability-identifier-naming.TypeAliasCase: CamelCase
+            readability-identifier-naming.TypeTemplateParameterCase: CamelCase
+            readability-identifier-naming.ValueTemplateParameterCase: camelBack
+            readability-identifier-naming.VariableCase: camelBack
+            readability-identifier-naming.VirtualMethodCase: camelBack
+
+    UnusedIncludes: Strict

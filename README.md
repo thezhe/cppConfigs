@@ -1,2 +1,2 @@
 # cppConfigs
-My collection of C++ editor configuration files
+My C++ configuration files for making a giga-linter/formatter.
