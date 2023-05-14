@@ -1,0 +1,20 @@
+{
+    // https://go.microsoft.com/fwlink/?linkid=830387
+    // Debug or Attach using lldb
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug",
+            "program": "${command:cmake.launchTargetPath}",
+            "cwd": "${workspaceFolder}",
+        },
+        {
+            "type": "lldb",
+            "request": "attach",
+            "name": "Attach",
+            "pid": "${command:pickMyProcess}"
+        }
+    ]
+}
