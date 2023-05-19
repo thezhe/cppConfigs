@@ -1,4 +1,5 @@
 # https://github.com/cheshirekow/cmake_format
+# CamelCase executable projects and executables, camelBack library projects and libraries, lower_case functions, UPPER_CASE variables.
 
 format:
     dangle_parens: true

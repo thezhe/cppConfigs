@@ -1,8 +1,9 @@
 # https://clangd.llvm.org
-# As many C++ checks as possible, camelBack within scopes, CamelCase outside scopes, lower_case local variables.
+# As many C++ checks as possible.
+# CamelCase classes, structs, and namespaces, lower_case local variables, camelBack everything else.
 
 If:
-    PathExclude: /build/**
+    PathExclude: "/build/**"
 
 InlayHints:
     Enabled: false
