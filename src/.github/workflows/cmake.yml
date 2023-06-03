@@ -1,0 +1,43 @@
+# Configure, Build, Test and Install release on Ubuntu, Windows, and Mac using default compiler and generator.
+
+name: CMake
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+env:
+  BUILD_PATH: ${{github.workspace}}/build
+  CMAKE_BUILD_TYPE: Release
+  CMAKE_CONFIG_TYPE: Release
+  CMAKE_BUILD_PARALLEL_LEVEL: 2
+  CTEST_PARALLEL_LEVEL: 2
+
+jobs:
+  build:
+    name: Configure, Build, Test, Install (${{matrix.os}})
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configure
+      run: cmake -B ${{env.BUILD_PATH}}
+
+    - name: Build
+      run: cmake --build ${{env.BUILD_PATH}}
+
+    - name: Test
+      run: ctest --test-dir ${{env.BUILD_PATH}}
+
+    # - name: Install
+    #   run: cmake --install --strip --prefix
+
+    # - name: Upload Installation
+    #   uses: actions/Upload

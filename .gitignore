@@ -1,4 +1,5 @@
-# Ignore configs and builds
+# WARNING: DO NOT USE FOR OTHER PROJECTS.
+# Ignore configs and builds.
 
 # Config files
 /.clangd
@@ -15,3 +16,6 @@
 
 # CMake
 /build
+
+# GitHub Actions
+/.github
