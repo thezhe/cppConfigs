@@ -1,7 +1,9 @@
 # https://github.com/cheshirekow/cmake_format
-# CamelCase executable projects and executables, camelBack library projects and libraries, lower_case functions, UPPER_CASE variables.
+# lower_case functions, UPPER_CASE variables.
+# Artifacts are CamelCase, all other targets are camelBack
 
 format:
     dangle_parens: true
     line_width: 110
     tab_size: 4
+    autosort: true

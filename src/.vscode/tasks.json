@@ -1,0 +1,82 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // Create a git tag and sign off.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create Tag (Signed Off)",
+            "command": "git",
+            "args": [
+                "tag",
+                "-s",
+                "-m",
+                "${input:message}",
+                "${input:tag}"
+            ],
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "revealProblems": "onProblem",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": false,
+                "clear": false,
+                "close": true
+            },
+            "icon": {
+                "id": "tag",
+            }
+        },
+        {
+            "label": "cmake-lint",
+            "command": "cmake-lint",
+            "args": [
+                "${workspaceFolder}/CMakeLists.txt"
+            ],
+            "icon": {
+                "id": "warning"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "type": "process",
+            "problemMatcher": {
+                "owner": "cmake-lint",
+                "severity": "warning",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "^(.*):(\\d+),(\\d+):\\s*\\[.*\\]\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "message": 4,
+                        "loop": true
+                    }
+                ]
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "revealProblems": "onProblem",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": false,
+                "close": true
+            },
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "tag",
+            "description": "Git tag."
+        },
+        {
+            "type": "promptString",
+            "id": "message",
+            "description": "Git message."
+        }
+    ]
+}

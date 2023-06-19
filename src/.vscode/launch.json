@@ -1,6 +1,6 @@
 {
     // https://go.microsoft.com/fwlink/?linkid=830387
-    // Debug or Attach using lldb
+    // Debug or attach using lldb.
     "version": "0.2.0",
     "configurations": [
         {
