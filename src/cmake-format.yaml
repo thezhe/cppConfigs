@@ -7,3 +7,5 @@ format:
     line_width: 110
     tab_size: 4
     autosort: true
+
+    #TODO linting
